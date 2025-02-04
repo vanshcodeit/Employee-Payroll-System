@@ -113,6 +113,12 @@ class PayrollSystem{
             employeeList.remove(employeeToRemove);
         }
     }
+
+    public void displayEmployees(){
+        for(Employee employee : employeeList){
+            System.out.println(employee);
+        }
+    }
 }
 
 
@@ -126,7 +132,19 @@ class PayrollSystem{
 //********main class*************
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        PayrollSystem payrollSystem = new PayrollSystem();
+        FullTimeEmployee emp1 = new FullTimeEmployee("vikas" , 1, 70000.0);
+        PartTimeEmployee emp2 = new PartTimeEmployee("alexander", 2, 40, 100);
+
+        payrollSystem.addEmployee(emp1);
+        payrollSystem.addEmployee(emp2);
+
+        System.out.println("Initial Employee Details: ");
+        payrollSystem.displayEmployees();
+        System.out.println("Removing EMployees");
+        payrollSystem.removeEmployee(2);
+        System.out.println("Remaining Employees Details: ");
+        payrollSystem.displayEmployees();
         
     }
 
